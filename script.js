@@ -1,8 +1,11 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const humanScoreDiv = document.querySelector('.player-score');
-const computerScoreDiv = document.querySelector('.computer-score');
+const resultDiv = document.querySelector('.result');
+const buttonContainerDiv = document.querySelector('.button-container');
+const selection = document.querySelectorAll('.selection');
+const humanPoint = document.querySelector('.human-score');
+const computerPoint = document.querySelector('.computer-score');
 
 function getComputerChoice() {
     let rand = Math.floor(3 * Math.random());
@@ -14,8 +17,6 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    const resultDiv = document.querySelector('.result');
-
     if (humanChoice == computerChoice) {
         console.log("Draw! Both chose " + humanChoice + ".");
         resultDiv.textContent = "Draw! Both chose " + humanChoice + ".";
@@ -34,15 +35,14 @@ function playRound(humanChoice, computerChoice) {
         console.log("Computer wins! " + computerChoice + " beats " + humanChoice + ".")
         resultDiv.textContent = "Computer wins! " + computerChoice + " beats " + humanChoice + ".";
     }
-    humanScoreDiv.textContent = "Player: " + humanScore;
-    computerScoreDiv.textContent = "Computer: " + computerScore;
+
+    humanPoint.textContent = humanScore;
+    computerPoint.textContent = computerScore;
 }
 
-const btns = document.querySelectorAll("button");
-
-btns.forEach(button => {
+selection.forEach(button => {
     button.addEventListener('click', () => {
-        const humanChoice = button.className;
+        const humanChoice = button.textContent.toLowerCase();
         playRound(humanChoice, getComputerChoice());
     });
 });
