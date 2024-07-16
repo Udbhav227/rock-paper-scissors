@@ -17,7 +17,8 @@ body {
     margin: 50px;
 }
 
-.selection {
+.selection,
+.restart {
     font-size: 1.2rem;
     cursor: pointer;
     padding: .5rem 1rem .5rem 1rem;
@@ -37,13 +38,19 @@ body {
 }
 
 .result {
-    border: 2px solid red;
     text-align: center;
-    font-size: 1.3rem;
 }
 
 .human-score,
 .computer-score {
     font-size: 1.8rem;
     margin-left: 10px;
+}
+
+.final-result {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d9534f;
+    text-align: center;
+    margin-top: 20px;
 }
